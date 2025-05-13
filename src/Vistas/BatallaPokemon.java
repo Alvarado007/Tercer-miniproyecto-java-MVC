@@ -33,7 +33,7 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         this.turno = turno;
         this.entrenador1 = entrenador1;
         this.entrenador2 = entrenador2;
-        this.imagenes = entrenador1.getimagenes();
+        this.imagenes = entrenador1.getimagenes_front();
         this.pokemon1 = pokemon1;
         this.pokemon2 = pokemon2;
         initComponents();
@@ -154,7 +154,7 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         jPanel2.add(jLabel3);
         jLabel3.setBounds(530, 180, 200, 200);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logos/Pikachu Fondo Resized.jpeg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logos/FondoBatalla.png"))); // NOI18N
         jPanel2.add(jLabel6);
         jLabel6.setBounds(0, 0, 800, 600);
 
@@ -362,3 +362,4 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         }
     }
 }
+

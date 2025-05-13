@@ -228,36 +228,36 @@ public class Entrenador extends SerVivo {
             pokemon.mostrarAtaques();
         }
     }
-    public HashMap<String, String> getimagenes() {
+    public HashMap<String, String> getimagenes_front() {
         HashMap<String, String> imagenes = new HashMap<>();
 
-        imagenes.put("Abra", "/Imagenes/Pokemones/Abra.png");
-        imagenes.put("Alakazam", "/Imagenes/Pokemones/Alakazam.png");
-        imagenes.put("Arcanine", "/Imagenes/Pokemones/Arcanine.png");
-        imagenes.put("Blastoise", "/Imagenes/Pokemones/Blastoise.png");
-        imagenes.put("Bulbasaur", "/Imagenes/Pokemones/Bulbasaur.png");
-        imagenes.put("Celebi", "/Imagenes/Pokemones/Celebi.png");
-        imagenes.put("Charizard", "/Imagenes/Pokemones/Charizard.png");
-        imagenes.put("Charmander", "/Imagenes/Pokemones/Charmander.png");
-        imagenes.put("Delphox", "/Imagenes/Pokemones/Delphox.png");
-        imagenes.put("Eevee", "/Imagenes/Pokemones/Eevee.png");
-        imagenes.put("Gardevoir", "/Imagenes/Pokemones/Gardevoir.png");
-        imagenes.put("Gengar", "/Imagenes/Pokemones/Gengar.png");
-        imagenes.put("Greninja", "/Imagenes/Pokemones/Greninja.png");
-        imagenes.put("Gyarados", "/Imagenes/Pokemones/Gyarados.png");
-        imagenes.put("Incineroar", "/Imagenes/Pokemones/Incineroar.png");
-        imagenes.put("Jigglypuff", "/Imagenes/Pokemones/Jigglypuff.png");
-        imagenes.put("Lucario", "/Imagenes/Pokemones/Lucario.png");
-        imagenes.put("Lugia", "/Imagenes/Pokemones/Lugia.png");
-        imagenes.put("Magikarp", "/Imagenes/Pokemones/Magikarp.png");
-        imagenes.put("Meowth", "/Imagenes/Pokemones/Meowth.png");
-        imagenes.put("Mewtwo", "/Imagenes/Pokemones/Mewtwo.png");
-        imagenes.put("Pikachu", "/Imagenes/Pokemones/Pikachu.png");
-        imagenes.put("Psyduck", "/Imagenes/Pokemones/Psyduck.png");
-        imagenes.put("Raichu", "/Imagenes/Pokemones/Raichu.png");
-        imagenes.put("Rayquaza", "/Imagenes/Pokemones/Rayquaza.png");
-        imagenes.put("Snorlax", "/Imagenes/Pokemones/Snorlax.png");
-        imagenes.put("Squirtle", "/Imagenes/Pokemones/Squirtle.png");
+        imagenes.put("Abra", "/Imagenes/Pokemones/Front/Abra.gif");
+        imagenes.put("Alakazam", "/Imagenes/Pokemones/Front/Alakazam.gif");
+        imagenes.put("Arcanine", "/Imagenes/Pokemones/Front/Arcanine.gif");
+        imagenes.put("Blastoise", "/Imagenes/Pokemones/Front/Blastoise.gif");
+        imagenes.put("Bulbasaur", "/Imagenes/Pokemones/Front/Bulbasaur.gif");
+        imagenes.put("Celebi", "/Imagenes/Pokemones/Front/Celebi.gif");
+        imagenes.put("Charizard", "/Imagenes/Pokemones/Front/Charizard.gif");
+        imagenes.put("Charmander", "/Imagenes/Pokemones/Front/Charmander.gif");
+        imagenes.put("Delphox", "/Imagenes/Pokemones/Front/Delphox.gif");
+        imagenes.put("Eevee", "/Imagenes/Pokemones/Front/Eevee.gif");
+        imagenes.put("Gardevoir", "/Imagenes/Pokemones/Front/Gardevoir.gif");
+        imagenes.put("Gengar", "/Imagenes/Pokemones/Front/Gengar.gif");
+        imagenes.put("Greninja", "/Imagenes/Pokemones/Front/Greninja.gif");
+        imagenes.put("Gyarados", "/Imagenes/Pokemones/Front/Gyarados.gif");
+        imagenes.put("Incineroar", "/Imagenes/Pokemones/Front/Incineroar.gif");
+        imagenes.put("Jigglypuff", "/Imagenes/Pokemones/Front/Jigglypuff.gif");
+        imagenes.put("Lucario", "/Imagenes/Pokemones/Front/Lucario.gif");
+        imagenes.put("Lugia", "/Imagenes/Pokemones/Front/Lugia.gif");
+        imagenes.put("Magikarp", "/Imagenes/Pokemones/Front/Magikarp.gif");
+        imagenes.put("Meowth", "/Imagenes/Pokemones/Front/Meowth.gif");
+        imagenes.put("Mewtwo", "/Imagenes/Pokemones/Front/Mewtwo.gif");
+        imagenes.put("Pikachu", "/Imagenes/Pokemones/Front/Pikachu.gif");
+        imagenes.put("Psyduck", "/Imagenes/Pokemones/Front/Psyduck.gif");
+        imagenes.put("Raichu", "/Imagenes/Pokemones/Front/Raichu.gif");
+        imagenes.put("Rayquaza", "/Imagenes/Pokemones/Front/Rayquaza.gif");
+        imagenes.put("Snorlax", "/Imagenes/Pokemones/Front/Snorlax.gif");
+        imagenes.put("Squirtle", "/Imagenes/Pokemones/Front/Squirtle.gif");
 
         return imagenes;
     }
