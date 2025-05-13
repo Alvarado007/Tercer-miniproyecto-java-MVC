@@ -256,7 +256,6 @@ public class Entrenador extends SerVivo {
         imagenes.put("Psyduck", "/Imagenes/Pokemones/Front/Psyduck.gif");
         imagenes.put("Raichu", "/Imagenes/Pokemones/Front/Raichu.gif");
         imagenes.put("Rayquaza", "/Imagenes/Pokemones/Front/Rayquaza.gif");
-        imagenes.put("Snorlax", "/Imagenes/Pokemones/Front/Snorlax.gif");
         imagenes.put("Squirtle", "/Imagenes/Pokemones/Front/Squirtle.gif");
 
         return imagenes;
@@ -290,7 +289,6 @@ public class Entrenador extends SerVivo {
         imagenes.put("Psyduck", "/Imagenes/Pokemones/Back/Psyduck.gif");
         imagenes.put("Raichu", "/Imagenes/Pokemones/Back/Raichu.gif");
         imagenes.put("Rayquaza", "/Imagenes/Pokemones/Back/Rayquaza.gif");
-        imagenes.put("Snorlax", "/Imagenes/Pokemones/Back/Snorlax.gif");
         imagenes.put("Squirtle", "/Imagenes/Pokemones/Back/Squirtle.gif");
 
         return imagenes;
@@ -324,7 +322,6 @@ public class Entrenador extends SerVivo {
         tipoPokemon.put("Psyduck", TiposPokemon.PSIQUICO);
         tipoPokemon.put("Raichu", TiposPokemon.ELECTRICO);
         tipoPokemon.put("Rayquaza", TiposPokemon.ELECTRICO);
-        tipoPokemon.put("Snorlax", TiposPokemon.AGUA);
         tipoPokemon.put("Squirtle", TiposPokemon.AGUA);
 
 
@@ -359,7 +356,6 @@ public class Entrenador extends SerVivo {
         counters.put("Psyduck", TiposPokemon.FUEGO);
         counters.put("Raichu", TiposPokemon.PSIQUICO);
         counters.put("Rayquaza", TiposPokemon.PSIQUICO);
-        counters.put("Snorlax", TiposPokemon.ELECTRICO);
         counters.put("Squirtle", TiposPokemon.ELECTRICO);
 
         return counters;
@@ -392,7 +388,6 @@ public class Entrenador extends SerVivo {
         pokemones.add("Psyduck");
         pokemones.add("Raichu");
         pokemones.add("Rayquaza");
-        pokemones.add("Snorlax");
         pokemones.add("Squirtle");
 
         return pokemones;
