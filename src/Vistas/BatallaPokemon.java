@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
+import javax.swing.SwingConstants;
+
 import Clases.Ataque;
 import Clases.Entrenador;
 import Clases.Pokemon;
@@ -21,6 +23,7 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
     Entrenador entrenador1;
     Entrenador entrenador2;
     HashMap<String, String> imagenes;
+    HashMap<String, String> imagenes2;
     Pokemon pokemon1;
     Pokemon pokemon2;
     byte turno;
@@ -34,6 +37,7 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         this.entrenador1 = entrenador1;
         this.entrenador2 = entrenador2;
         this.imagenes = entrenador1.getimagenes_front();
+        this.imagenes2 = entrenador2.getimagenes_Back();
         this.pokemon1 = pokemon1;
         this.pokemon2 = pokemon2;
         initComponents();
@@ -134,7 +138,9 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         jButton8.setActionCommand("3");
         jButton8.setEnabled(false);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagenes.get(pokemon1.getNombre())))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagenes2.get(pokemon1.getNombre())))); // NOI18N
+        jLabel4.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabel4.setVerticalAlignment(SwingConstants.CENTER);
         jPanel2.add(jLabel4);
         jLabel4.setBounds(60,180,200,200);
 
@@ -151,6 +157,8 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         jLabel5.setBounds(100, 130, 120, 30);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagenes.get(pokemon2.getNombre())))); // NOI18N
+        jLabel3.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabel3.setVerticalAlignment(SwingConstants.CENTER);
         jPanel2.add(jLabel3);
         jLabel3.setBounds(530, 180, 200, 200);
 

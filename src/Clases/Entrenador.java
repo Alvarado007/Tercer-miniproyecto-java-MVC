@@ -262,6 +262,40 @@ public class Entrenador extends SerVivo {
         return imagenes;
     }
 
+    public HashMap<String, String> getimagenes_Back() {
+        HashMap<String, String> imagenes = new HashMap<>();
+
+        imagenes.put("Abra", "/Imagenes/Pokemones/Back/Abra.gif");
+        imagenes.put("Alakazam", "/Imagenes/Pokemones/Back/Alakazam.gif");
+        imagenes.put("Arcanine", "/Imagenes/Pokemones/Back/Arcanine.gif");
+        imagenes.put("Blastoise", "/Imagenes/Pokemones/Back/Blastoise.gif");
+        imagenes.put("Bulbasaur", "/Imagenes/Pokemones/Back/Bulbasaur.gif");
+        imagenes.put("Celebi", "/Imagenes/Pokemones/Back/Celebi.gif");
+        imagenes.put("Charizard", "/Imagenes/Pokemones/Back/Charizard.gif");
+        imagenes.put("Charmander", "/Imagenes/Pokemones/Back/Charmander.gif");
+        imagenes.put("Delphox", "/Imagenes/Pokemones/Back/Delphox.gif");
+        imagenes.put("Eevee", "/Imagenes/Pokemones/Back/Eevee.gif");
+        imagenes.put("Gardevoir", "/Imagenes/Pokemones/Back/Gardevoir.gif");
+        imagenes.put("Gengar", "/Imagenes/Pokemones/Back/Gengar.gif");
+        imagenes.put("Greninja", "/Imagenes/Pokemones/Back/Greninja.gif");
+        imagenes.put("Gyarados", "/Imagenes/Pokemones/Back/Gyarados.gif");
+        imagenes.put("Incineroar", "/Imagenes/Pokemones/Back/Incineroar.gif");
+        imagenes.put("Jigglypuff", "/Imagenes/Pokemones/Back/Jigglypuff.gif");
+        imagenes.put("Lucario", "/Imagenes/Pokemones/Back/Lucario.gif");
+        imagenes.put("Lugia", "/Imagenes/Pokemones/Back/Lugia.gif");
+        imagenes.put("Magikarp", "/Imagenes/Pokemones/Back/Magikarp.gif");
+        imagenes.put("Meowth", "/Imagenes/Pokemones/Back/Meowth.gif");
+        imagenes.put("Mewtwo", "/Imagenes/Pokemones/Back/Mewtwo.gif");
+        imagenes.put("Pikachu", "/Imagenes/Pokemones/Back/Pikachu.gif");
+        imagenes.put("Psyduck", "/Imagenes/Pokemones/Back/Psyduck.gif");
+        imagenes.put("Raichu", "/Imagenes/Pokemones/Back/Raichu.gif");
+        imagenes.put("Rayquaza", "/Imagenes/Pokemones/Back/Rayquaza.gif");
+        imagenes.put("Snorlax", "/Imagenes/Pokemones/Back/Snorlax.gif");
+        imagenes.put("Squirtle", "/Imagenes/Pokemones/Back/Squirtle.gif");
+
+        return imagenes;
+    }
+
     public HashMap<String, TiposPokemon> getTipoPokemon() {
         HashMap<String, TiposPokemon> tipoPokemon = new HashMap<>();
 
