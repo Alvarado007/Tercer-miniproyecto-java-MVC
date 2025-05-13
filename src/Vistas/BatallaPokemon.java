@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
+import javax.swing.SwingConstants;
+
 import Clases.Ataque;
 import Clases.Entrenador;
 import Clases.Pokemon;
@@ -21,6 +23,7 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
     Entrenador entrenador1;
     Entrenador entrenador2;
     HashMap<String, String> imagenes;
+    HashMap<String, String> imagenes2;
     Pokemon pokemon1;
     Pokemon pokemon2;
     byte turno;
@@ -33,7 +36,8 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         this.turno = turno;
         this.entrenador1 = entrenador1;
         this.entrenador2 = entrenador2;
-        this.imagenes = entrenador1.getimagenes();
+        this.imagenes = entrenador1.getimagenes_front();
+        this.imagenes2 = entrenador2.getimagenes_Back();
         this.pokemon1 = pokemon1;
         this.pokemon2 = pokemon2;
         initComponents();
@@ -72,89 +76,121 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         jPanel2.setPreferredSize(new java.awt.Dimension(800, 600));
         jPanel2.setLayout(null);
 
+        jLabel1.setBackground(new java.awt.Color(192,192,192));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText(pokemon1.getNombre());
+        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel1.setOpaque(true);
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(100, 90, 120, 30);
+        jLabel1.setBounds(10, 420, 120, 30);
 
+        jLabel2.setBackground(new java.awt.Color(192,192,192));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText(pokemon2.getNombre());
+        jLabel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel2.setOpaque(true);
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(570, 90, 120, 30);
+        jLabel2.setBounds(670, 180, 120, 30);
 
+        jButton1.setBackground(new java.awt.Color(248,144,144));
         jButton1.setText("<html>" + pokemon1.getAtaques().get(0).getNombreAtaque() + "<br>" + "daño:" +pokemon1.getAtaques().get(0).getPotencia() + "</html>");
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(jButton1);
-        jButton1.setBounds(30, 410, 130, 70);
+        jButton1.setBounds(370, 390, 130, 70);
         jButton1.addActionListener(this);
         jButton1.setActionCommand("0");
 
+        jButton2.setBackground(new java.awt.Color(120,168,96));
         jButton2.setText("<html>" + pokemon1.getAtaques().get(1).getNombreAtaque() + "<br>" +"daño:" + pokemon1.getAtaques().get(1).getPotencia() + "</html>");
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(jButton2);
-        jButton2.setBounds(30, 500, 130, 70);
+        jButton2.setBounds(370, 470, 130, 70);
         jButton2.addActionListener(this);
         jButton2.setActionCommand("1");
 
+        jButton3.setBackground(new java.awt.Color(212,164,79));
         jButton3.setText("<html>" + pokemon1.getAtaques().get(2).getNombreAtaque() + "<br>" +"daño:" + pokemon1.getAtaques().get(2).getPotencia() + "</html>");
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(jButton3);
-        jButton3.setBounds(180, 410, 130, 70);
+        jButton3.setBounds(510, 390, 130, 70);
         jButton3.addActionListener(this);
         jButton3.setActionCommand("2");
 
+        jButton4.setBackground(new java.awt.Color(64,144,208));
         jButton4.setText("<html>" + pokemon1.getAtaques().get(3).getNombreAtaque() + "<br>" +"daño:" + pokemon1.getAtaques().get(3).getPotencia() + "</html>");
+        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(jButton4);
-        jButton4.setBounds(180, 500, 130, 70);
+        jButton4.setBounds(510, 470, 130, 70);
         jButton4.addActionListener(this);
         jButton4.setActionCommand("3");
         jButton4.setEnabled(false);
 
+        jButton5.setBackground(new java.awt.Color(248,144,144));
         jButton5.setText("<html>" + pokemon2.getAtaques().get(0).getNombreAtaque() + "<br>" +"daño:" + pokemon2.getAtaques().get(0).getPotencia() + "</html>");
+        jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(jButton5);
-        jButton5.setBounds(490, 410, 130, 70);
+        jButton5.setBounds(160, 130, 130, 70);
         jButton5.addActionListener(this);
         jButton5.setActionCommand("0");
 
+        jButton6.setBackground(new java.awt.Color(120,168,96));
         jButton6.setText("<html>" + pokemon2.getAtaques().get(1).getNombreAtaque() + "<br>" +"daño:" + pokemon2.getAtaques().get(1).getPotencia() + "</html>");
+        jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(jButton6);
-        jButton6.setBounds(490, 500, 130, 70);
+        jButton6.setBounds(160, 210, 130, 70);
         jButton6.addActionListener(this);
         jButton6.setActionCommand("1");
 
+        jButton7.setBackground(new java.awt.Color(212,164,79));
         jButton7.setText("<html>" + pokemon2.getAtaques().get(2).getNombreAtaque() + "<br>" +"daño:" + pokemon2.getAtaques().get(2).getPotencia() + "</html>");
+        jButton7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(jButton7);
-        jButton7.setBounds(640, 410, 130, 70);
+        jButton7.setBounds(300, 130, 130, 70);
         jButton7.addActionListener(this);
         jButton7.setActionCommand("2");
 
+        jButton8.setBackground(new java.awt.Color(64,144,208));
         jButton8.setText("<html>" + pokemon2.getAtaques().get(3).getNombreAtaque() + "<br>" +"daño:" + pokemon2.getAtaques().get(3).getPotencia() + "</html>");
+        jButton8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.add(jButton8);
-        jButton8.setBounds(640, 500, 130, 70);
+        jButton8.setBounds(300, 210, 130, 70);
         jButton8.addActionListener(this);
         jButton8.setActionCommand("3");
         jButton8.setEnabled(false);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagenes.get(pokemon1.getNombre())))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagenes2.get(pokemon1.getNombre())))); // NOI18N
+        jLabel4.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabel4.setVerticalAlignment(SwingConstants.CENTER);
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(60,180,200,200);
+        jLabel4.setBounds(140,350,200,200);
 
+        jLabel7.setBackground(new java.awt.Color(192,192,192));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jLabel7.setOpaque(true);
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText(Short.toString(pokemon2.getVida()));
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(570, 130, 120, 30);
+        jLabel7.setBounds(670, 220, 120, 30);
 
+        jLabel5.setBackground(new java.awt.Color(192,192,192));
+        jLabel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setOpaque(true);
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText(Short.toString(pokemon1.getVida()));
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(100, 130, 120, 30);
+        jLabel5.setBounds(10, 460, 120, 30);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagenes.get(pokemon2.getNombre())))); // NOI18N
+        jLabel3.setHorizontalAlignment(SwingConstants.CENTER);
+        jLabel3.setVerticalAlignment(SwingConstants.CENTER);
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(530, 180, 200, 200);
+        jLabel3.setBounds(460, 120, 200, 200);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logos/Pikachu Fondo Resized.jpeg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logos/FondoBatalla.png"))); // NOI18N
         jPanel2.add(jLabel6);
         jLabel6.setBounds(0, 0, 800, 600);
 
@@ -362,3 +398,4 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         }
     }
 }
+
