@@ -6,6 +6,8 @@ public class Batalla {
     private Pokemon pokemon1;
     private Pokemon pokemon2;
     private byte turno;
+    private byte contadorAtaque1;
+    private byte contadorAtaque2;
 
     public Batalla(Entrenador entrenador1, Entrenador entrenador2, Pokemon pokemon1, Pokemon pokemon2) {
         this.entrenador1 = entrenador1;
@@ -22,18 +24,32 @@ public class Batalla {
         }
     }
 
-    public void atacar(byte turno, int indiceAtaque) {
+    public void atacar(int indiceAtaque) {
         if (turno == 1) {
             pokemon1.atacar(pokemon2, indiceAtaque);
+            contadorAtaque1++;
+            this.turno = 2; // Cambia el turno al Pokemon 2
         } else {
             pokemon2.atacar(pokemon1, indiceAtaque);
+            contadorAtaque2++;
+            this.turno = 1; // Cambia el turno al Pokemon 1
         }
     }
 
     public void setTurno(byte turno) {
         this.turno = turno;
     }
+    public byte getTurno() {
+        return turno;
+    }
 
-    
+    public byte getContadorAtaque1() {
+        return contadorAtaque1;
+    }
+
+    public byte getContadorAtaque2() {
+        return contadorAtaque2;
+    }
+
+
 }
-
