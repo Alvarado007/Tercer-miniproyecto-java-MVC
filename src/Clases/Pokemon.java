@@ -120,5 +120,19 @@ public class Pokemon {
         return nombre;
     }
 
+    public void atacar(Pokemon pokemon2, int indiceAtaque) {
+        Ataque ataquePokemon1 = ataques.get(indiceAtaque);
+        int daño = (2/5*30+2)*(this.getAtaque()/pokemon2.getDefensa())*(ataquePokemon1.getPotencia()/50) + 2;
+        if (ataquePokemon1.getTipoAtaque() == pokemon2.getCounter()) {
+            daño = (int) (daño * 1.5);
+        } else if (ataquePokemon1.getTipoAtaque() == pokemon2.getTipo()) {
+            daño = (int) (daño * 0.5);
+        }
+        pokemon2.recibirDaño(daño);
+    }
     
+    public void recibirDaño(int daño) {
+        short vidaRestante = (short) (vida - daño);
+        this.vida = vidaRestante;
+    }
 }
