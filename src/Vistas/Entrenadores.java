@@ -10,13 +10,17 @@
 package Vistas;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import Clases.Entrenador;
+import Clases.Pokemon;
+import Controladores.ControladorEntrenadores;
+import Interfaces.EntrenadoresInterface;
 
-public class Entrenadores extends javax.swing.JFrame implements ActionListener {
-
+public class Entrenadores extends javax.swing.JFrame implements ActionListener, EntrenadoresInterface {
+    public ControladorEntrenadores controlador;
     /**
      * Creates new form Entrenadores
      */
@@ -152,19 +156,27 @@ public class Entrenadores extends javax.swing.JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == BotonContinuar) {
-            TextFieldEntrenador1.getText();
-            TextFieldEntrenador2.getText();
-            Entrenador entrenador1 = new Entrenador(TextFieldEntrenador1.getText());
-            Entrenador entrenador2 = new Entrenador(TextFieldEntrenador2.getText());
-            entrenador1.elegirPokemonBatallaAutomatico();
-            entrenador2.elegirPokemonBatallaAutomatico();
-            entrenador1.agregraAtaquesPokemonesAutomatico();
-            entrenador2.agregraAtaquesPokemonesAutomatico();
-            JOptionPane.showMessageDialog(null, entrenador1.getNombre_entrenador() + entrenador1.getEquipo_entrenador());
-            JOptionPane.showMessageDialog(null, entrenador2.getNombre_entrenador() + entrenador2.getEquipo_entrenador());
-            this.setVisible(false);
+            String Nombre1 =TextFieldEntrenador1.getText();
+            String Nombre2 =TextFieldEntrenador2.getText();
+            controlador.crearEntrenadores(Nombre1, Nombre2);
             this.dispose();
-            SeleccionPokemon seleccionPokemon = new SeleccionPokemon(entrenador1, entrenador2);
         }
     }
+
+    @Override
+    public void setControlador(ControladorEntrenadores controlador) {
+        this.controlador = controlador;
+    }
+
+    @Override
+    public void Iniciar() {
+        this.setVisible(true);
+    }
+
+    @Override
+    public void Mostrar_equipo(String nombreEntrenador, ArrayList<Pokemon> equipo) {
+        JOptionPane.showMessageDialog(this, "Equipo de " + nombreEntrenador + ": " + equipo);
+    }
+
+    
 }

@@ -228,7 +228,7 @@ public class Entrenador extends SerVivo {
             pokemon.mostrarAtaques();
         }
     }
-    public HashMap<String, String> getimagenes_front() {
+    static public HashMap<String, String> getimagenes_front() {
         HashMap<String, String> imagenes = new HashMap<>();
 
         imagenes.put("Abra", "/Imagenes/Pokemones/Front/Abra.gif");
@@ -261,7 +261,7 @@ public class Entrenador extends SerVivo {
         return imagenes;
     }
 
-    public HashMap<String, String> getimagenes_Back() {
+    static public HashMap<String, String> getimagenes_Back() {
         HashMap<String, String> imagenes = new HashMap<>();
 
         imagenes.put("Abra", "/Imagenes/Pokemones/Back/Abra.gif");
