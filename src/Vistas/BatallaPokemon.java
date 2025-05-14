@@ -259,47 +259,52 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
     private javax.swing.JPanel jPanel2;
     // End of variables declaration      
     
-    // public void Ocultarbotones() {
-    //     if (turno == 1) {
-    //         jButton1.setEnabled(true);
-    //         jButton2.setEnabled(true);
-    //         jButton3.setEnabled(true);
-    //         if (contadorataques1 >= 3) {
-    //             jButton4.setEnabled(true);
-    //             mensajes("Puedes usar el ataque especial de " + pokemon1.getNombre() + "!");
-    //         } 
-    //         else {
-    //             jButton4.setEnabled(false);
-    //         }
-    //         jButton5.setEnabled(false);
-    //         jButton6.setEnabled(false); 
-    //         jButton7.setEnabled(false);
-    //         jButton8.setEnabled(false);
-    //         mensajes("Es el turno de " + entrenador1.getNombre_entrenador() + " para atacar con " + pokemon1.getNombre() + "!");   
-    //     } else {
-    //         jButton1.setEnabled(false);
-    //         jButton2.setEnabled(false);
-    //         jButton3.setEnabled(false);
-    //         jButton4.setEnabled(false);
-    //         jButton5.setEnabled(true);
-    //         jButton6.setEnabled(true);
-    //         jButton7.setEnabled(true);
-    //         if (contadorataques2 >= 3) {
-    //             jButton8.setEnabled(true);
-    //             mensajes("Puedes usar el ataque especial de " + pokemon2.getNombre() + "!");
-    //         }
-    //         else {
-    //             jButton8.setEnabled(false);
-    //         }
-    //         mensajes("Es el turno de " + entrenador2.getNombre_entrenador() + " para atacar con " + pokemon2.getNombre() + "!");
-    //     }
-    // }
+    public void Ocultarbotones() {
+        if (controlador.get_turno() == 1) {
+            jButton1.setEnabled(true);
+            jButton2.setEnabled(true);
+            jButton3.setEnabled(true);
+            if (controlador.get_contadorAtaque1() >= 3) {
+                jButton4.setEnabled(true);
+                // mensajes("Puedes usar el ataque especial de " + pokemon1.getNombre() + "!");
+            } 
+            else {
+                jButton4.setEnabled(false);
+            }
+            jButton5.setEnabled(false);
+            jButton6.setEnabled(false); 
+            jButton7.setEnabled(false);
+            jButton8.setEnabled(false);
+            // mensajes("Es el turno de " + entrenador1.getNombre_entrenador() + " para atacar con " + pokemon1.getNombre() + "!");   
+        } else {
+            jButton1.setEnabled(false);
+            jButton2.setEnabled(false);
+            jButton3.setEnabled(false);
+            jButton4.setEnabled(false);
+            jButton5.setEnabled(true);
+            jButton6.setEnabled(true);
+            jButton7.setEnabled(true);
+            if (controlador.get_contadorAtaque2() >= 3) {
+                jButton8.setEnabled(true);
+                // mensajes("Puedes usar el ataque especial de " + pokemon2.getNombre() + "!");
+            }
+            else {
+                jButton8.setEnabled(false);
+            }
+            // mensajes("Es el turno de " + entrenador2.getNombre_entrenador() + " para atacar con " + pokemon2.getNombre() + "!");
+        }
+    }
     public void mensajes(String mensaje) {
         javax.swing.JOptionPane.showMessageDialog(this, mensaje, "Batalla Pokemon", javax.swing.JOptionPane.INFORMATION_MESSAGE);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == jButton1 || e.getSource() == jButton2 || e.getSource() == jButton3 || e.getSource() == jButton4) {
+            controlador.atacar( Integer.parseInt(e.getActionCommand()));
+        } else if (e.getSource() == jButton5 || e.getSource() == jButton6 || e.getSource() == jButton7 || e.getSource() == jButton8) {
+            controlador.atacar( Integer.parseInt(e.getActionCommand()));
+        }
         // int daño = 0;
         //     if (e.getSource()==jButton1  || e.getSource()==jButton2 || e.getSource()==jButton3 || e.getSource()==jButton4){
         //         contadorataques1++;
@@ -427,5 +432,13 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         this.setVisible(true);
     }
 
-}
+    @Override
+    public void actualizar(String vida) {
+        if (controlador.get_turno() == 1) {
+            jLabel5.setText(vida);
+        } else {
+            jLabel7.setText(vida);
+        }
+    }
 
+}

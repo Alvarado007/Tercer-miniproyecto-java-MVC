@@ -3,6 +3,7 @@ package Controladores;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import Clases.Batalla;
 import Clases.Entrenador;
 import Clases.Pokemon;
 import Interfaces.SeleccionPokemonInterface;
@@ -14,6 +15,7 @@ public class ControladorSeleccion {
     public static Boolean Guardado;
     private Entrenador entrenador1;
     private Entrenador entrenador2;
+    private Batalla batalla;
 
     
 
@@ -45,8 +47,9 @@ public class ControladorSeleccion {
     }
 
     public void InicioBatalla(Pokemon pokemon1, Pokemon pokemon2) {
+        this.batalla = new Batalla(entrenador1, entrenador2, pokemon1, pokemon2);
         BatallaPokemon vistaBatalla = new BatallaPokemon();
-        ControladorBatalla controlador = new ControladorBatalla(pokemon1, pokemon2, vistaBatalla);
+        ControladorBatalla controlador = new ControladorBatalla(pokemon1, pokemon2, vistaBatalla, batalla);
         controlador.iniciar();
     }
         
