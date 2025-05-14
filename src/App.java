@@ -1,6 +1,8 @@
 import java.util.Scanner;
+import java.util.ResourceBundle.Control;
 
 import Clases.Visualizacion;
+import Controladores.ControladorInicio;
 import Vistas.InicioPokemon;
 import Vistas.InicioPokemon;
 
@@ -11,5 +13,7 @@ public class App {
         // visualizacion.iniciarJuego(sc);
         // sc.close();
         InicioPokemon inicio = new InicioPokemon();
+        ControladorInicio controlador = new ControladorInicio(inicio);
+        controlador.iniciar();
     }
 }

@@ -11,15 +11,18 @@ package Vistas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.ModuleLayer.Controller;
 
-public class InicioPokemon extends javax.swing.JFrame implements ActionListener{
+import Controladores.ControladorInicio;
+import Interfaces.Inicio;
 
+public class InicioPokemon extends javax.swing.JFrame implements ActionListener, Inicio {
+    public ControladorInicio controlador;
     /**
      * Creates new form InicioPokemon
      */
     public InicioPokemon() {
         initComponents();
-        this.setVisible(true);
     }
 
     /**
@@ -110,8 +113,17 @@ public class InicioPokemon extends javax.swing.JFrame implements ActionListener{
     // End of variables declaration                   
     @Override
     public void actionPerformed(ActionEvent e) {
+        controlador.iniciarJuego();
         this.dispose();
-        this.setVisible(false);
-        Entrenadores entrenadores = new Entrenadores();
+    }
+
+    @Override
+    public void SetControlador(ControladorInicio controller) {
+        this.controlador = controller;
+    }
+
+    @Override
+    public void Iniciar() {
+        this.setVisible(true);
     }
 }
