@@ -294,10 +294,7 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
             // mensajes("Es el turno de " + entrenador2.getNombre_entrenador() + " para atacar con " + pokemon2.getNombre() + "!");
         }
     }
-    public void mensajes(String mensaje) {
-        javax.swing.JOptionPane.showMessageDialog(this, mensaje, "Batalla Pokemon", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-    }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == jButton1 || e.getSource() == jButton2 || e.getSource() == jButton3 || e.getSource() == jButton4) {
@@ -439,6 +436,16 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         } else {
             jLabel7.setText(vida);
         }
+    }
+
+    @Override
+    public void Mensaje(String mensaje) {
+        javax.swing.JOptionPane.showMessageDialog(this, mensaje, "Batalla Pokemon", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    @Override
+    public void Borrar() {
+        this.dispose();
     }
 
 }

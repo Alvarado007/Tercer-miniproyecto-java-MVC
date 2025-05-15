@@ -175,13 +175,11 @@ public class SeleccionPokemon extends javax.swing.JFrame implements ActionListen
     // End of variables declaration
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (controlador.Guardado == null){
             Pokemon pokemon1 = ListEntrenador1.getSelectedValue();
             Pokemon pokemon2 = ListEntrenador2.getSelectedValue();
             controlador.InicioBatalla(pokemon1, pokemon2);
             System.out.println("Inicia la batalla");
             this.dispose();
-        }
         // if (PokemonGuardado == null) {
         //     Pokemon pokemon1 = ListEntrenador1.getSelectedValue();
         //     Pokemon pokemon2 = ListEntrenador2.getSelectedValue();
@@ -271,6 +269,14 @@ public class SeleccionPokemon extends javax.swing.JFrame implements ActionListen
         ListEntrenador2.setListData(pokemonesEntrenador2);
         this.setVisible(true);
         
+    }
+    public void ocultarbotones() {
+        
+    }
+
+    @Override
+    public void Mensaje(String mensaje) {
+        JOptionPane.showMessageDialog(this, mensaje);
     }
 
 }

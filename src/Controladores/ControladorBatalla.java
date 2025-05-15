@@ -3,7 +3,9 @@ package Controladores;
 import Clases.Batalla;
 import Clases.Entrenador;
 import Clases.Pokemon;
+import Interfaces.SeleccionPokemonInterface;
 import Vistas.BatallaPokemon;
+import Vistas.SeleccionPokemon;
 
 public class ControladorBatalla {
     private Pokemon pokemon1;
@@ -36,16 +38,38 @@ public class ControladorBatalla {
         String imagen2 = Entrenador.getimagenes_front().get(pokemon2.getNombre());
         vista.Iniciar(nombre1, nombre2, Vida1, Vida2, AtatquePrimerEntrenador1, AtatquePrimerEntrenador2, AtatquePrimerEntrenador3, AtatquePrimerEntrenador4, AtatqueSegundoEntrenador1, AtatqueSegundoEntrenador2, AtatqueSegundoEntrenador3, AtatqueSegundoEntrenador4, imagen1, imagen2);
         vista.Ocultarbotones();
+        if (batalla.getTurno() == 1) {
+            vista.Mensaje("Es el turno de " + pokemon1.getNombre());
+        } else {
+            vista.Mensaje("Es el turno de " + pokemon2.getNombre());
+        }
+        
     }
     public void atacar(int ataque) {
         if (get_turno() == 1) {
             batalla.atacar(ataque);
             vista.actualizar(Short.toString(pokemon2.getVida()));
-            vista.Ocultarbotones();
+            if (batalla.getPokemonderrotado() == true) {
+                vista.Mensaje("El pokemon " + pokemon2.getNombre() + " ha sido derrotado");
+                Regreso();
+                
+            }
+            else{
+                vista.Ocultarbotones();
+                vista.Mensaje("Es el turno de " + pokemon2.getNombre());
+            }
+            
         } else {
             batalla.atacar(ataque);
             vista.actualizar(Short.toString(pokemon1.getVida()));
-            vista.Ocultarbotones();
+            if (batalla.getPokemonderrotado() == true) {
+                vista.Mensaje("El pokemon " + pokemon1.getNombre() + " ha sido derrotado");
+                Regreso();
+            }
+            else{
+                vista.Ocultarbotones();
+                vista.Mensaje("Es el turno de " + pokemon1.getNombre());
+            }
         }
     }
     public Byte get_turno() {
@@ -56,7 +80,14 @@ public class ControladorBatalla {
     }
     public Byte get_contadorAtaque2() {
         return batalla.getContadorAtaque2();
-    }    
+    }  
+    
+    public void Regreso() {
+        vista.Borrar();
+        SeleccionPokemonInterface vistaSeleccion = new SeleccionPokemon();
+        ControladorSeleccion controlador = new ControladorSeleccion(vistaSeleccion, batalla.getEntrenador1(), batalla.getEntrenador2());
+        controlador.iniciar();
+    }
 
 
 

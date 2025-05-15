@@ -11,8 +11,6 @@ import Vistas.BatallaPokemon;
 
 public class ControladorSeleccion {
     private Interfaces.SeleccionPokemonInterface vista;
-    private Pokemon PokemonGuardado;
-    public static Boolean Guardado;
     private Entrenador entrenador1;
     private Entrenador entrenador2;
     private Batalla batalla;
@@ -32,18 +30,17 @@ public class ControladorSeleccion {
         Pokemon[] pokemonesEntrenador1 = entrenador1.getEquipo_entrenador().toArray( new Pokemon[0]);
         Pokemon[] pokemonesEntrenador2 = entrenador2.getEquipo_entrenador().toArray( new Pokemon[0]);
         vista.Iniciar(nombreEntrenador1, nombreEntrenador2, pokemonesEntrenador1, pokemonesEntrenador2);
-    }
-    public void actualizar() {
-        String nombreEntrenador1 = entrenador1.getNombre_entrenador();
-        String nombreEntrenador2 = entrenador2.getNombre_entrenador();
-        Pokemon[] pokemonesEntrenador1 = entrenador1.getEquipo_entrenador().toArray( new Pokemon[0]);
-        Pokemon[] pokemonesEntrenador2 = entrenador2.getEquipo_entrenador().toArray( new Pokemon[0]);
-        vista.Iniciar(nombreEntrenador1, nombreEntrenador2, pokemonesEntrenador1, pokemonesEntrenador2);
-    }
-    
-    public void guardarPokemon(Pokemon pokemon) {
-        this.PokemonGuardado = pokemon;
-        this.Guardado = true;
+        if(entrenador1.getEquipo_entrenador().size() == 0 ) {
+            vista.Mensaje("No hay pokemones disponibles para la batalla, el entrenador " + entrenador2.getNombre_entrenador() + " ha ganado");
+            System.exit(0);
+        }
+        else if(entrenador2.getEquipo_entrenador().size() == 0) {
+            vista.Mensaje("No hay pokemones disponibles para la batalla, el entrenador " + entrenador1.getNombre_entrenador() + " ha ganado");
+            System.exit(0);
+        }
+        else {
+            vista.Mensaje("Selecciona un pokemon para iniciar la batalla");
+        }
     }
 
     public void InicioBatalla(Pokemon pokemon1, Pokemon pokemon2) {
@@ -51,6 +48,10 @@ public class ControladorSeleccion {
         BatallaPokemon vistaBatalla = new BatallaPokemon();
         ControladorBatalla controlador = new ControladorBatalla(pokemon1, pokemon2, vistaBatalla, batalla);
         controlador.iniciar();
+    }
+
+    public void setBatalla(Batalla batalla) {
+        this.batalla = batalla;
     }
         
 
