@@ -175,9 +175,7 @@ public class SeleccionPokemon extends javax.swing.JFrame implements ActionListen
     // End of variables declaration
     @Override
     public void actionPerformed(ActionEvent e) {
-            Pokemon pokemon1 = ListEntrenador1.getSelectedValue();
-            Pokemon pokemon2 = ListEntrenador2.getSelectedValue();
-            controlador.InicioBatalla(pokemon1, pokemon2);
+            controlador.InicioBatalla(ListEntrenador1.getSelectedValue(), ListEntrenador2.getSelectedValue());
             System.out.println("Inicia la batalla");
             this.dispose();
         // if (PokemonGuardado == null) {
