@@ -26,7 +26,7 @@ public class Entrenadores extends javax.swing.JFrame implements ActionListener, 
      */
     public Entrenadores() {
         initComponents();
-        this.setVisible(true);
+        
     }
 
     /**

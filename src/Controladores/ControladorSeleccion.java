@@ -14,10 +14,12 @@ public class ControladorSeleccion {
     private Entrenador entrenador1;
     private Entrenador entrenador2;
     private Batalla batalla;
+    private boolean ESGUI;
 
     
 
-    public ControladorSeleccion(SeleccionPokemonInterface vista, Entrenador entrenador1, Entrenador entrenador2) {
+    public ControladorSeleccion(SeleccionPokemonInterface vista, Entrenador entrenador1, Entrenador entrenador2, boolean ESGUI) {
+        this.ESGUI = ESGUI;
         this.vista = vista;
         this.vista.setControlador(this);
         this.entrenador1 = entrenador1;
@@ -38,9 +40,7 @@ public class ControladorSeleccion {
             vista.Mensaje("No hay pokemones disponibles para la batalla, el entrenador " + entrenador1.getNombre_entrenador() + " ha ganado");
             System.exit(0);
         }
-        else {
-            vista.Mensaje("Selecciona un pokemon para iniciar la batalla");
-        }
+        
     }
 
     public void InicioBatalla(Pokemon pokemon1, Pokemon pokemon2) {
@@ -53,6 +53,20 @@ public class ControladorSeleccion {
     public void setBatalla(Batalla batalla) {
         this.batalla = batalla;
     }
-        
+    
+    public void cambiarVista() {
+        if (ESGUI) {
+            vista = new Vistas.SeleccionPokemon();
+        } else {
+            vista = new Vistas.SeleccionPokemonTerminal();
+        }
+        ESGUI = !ESGUI;
+        vista.setControlador(this);
+        iniciar();
+    }
+
+    public void setESGUI(boolean ESGUI) {
+        this.ESGUI = ESGUI;
+    }
 
 }
