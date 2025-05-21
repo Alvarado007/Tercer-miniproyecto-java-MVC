@@ -111,9 +111,8 @@ public class Pokemon {
     }
 
     public void mostrarAtaques() {
-        contadorataques = 1;
         for (Ataque ataque : ataques) {
-            System.out.println(contadorataques++ + ". " + "Nombre: " + ataque.getNombreAtaque() + ", Potencia: " + ataque.getPotencia() + ", Tipo: " + ataque.getTipoAtaque() + ", Tipo de Daño: " + ataque.getTipoDano());
+            System.out.println(  ". " + "Nombre: " + ataque.getNombreAtaque() + ", Potencia: " + ataque.getPotencia() + ", Tipo: " + ataque.getTipoAtaque() + ", Tipo de Daño: " + ataque.getTipoDano());
         }
     }
     public String toString() {

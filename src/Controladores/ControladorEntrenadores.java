@@ -32,7 +32,6 @@ public class ControladorEntrenadores {
         SeleccionPokemon vistaSeleccion = new SeleccionPokemon();
         ControladorSeleccion controladorSeleccion = new ControladorSeleccion(vistaSeleccion, entrenador1, entrenador2);
         controladorSeleccion.iniciar();
-        vista.dispose();
 
 
     }
