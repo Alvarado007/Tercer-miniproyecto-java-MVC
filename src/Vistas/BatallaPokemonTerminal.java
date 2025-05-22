@@ -29,11 +29,6 @@ public class BatallaPokemonTerminal implements BatallaInterface {
     }
 
     @Override
-    public void actualizar(String vida) {
-        
-    }
-
-    @Override
     public void Mensaje(String mensaje) {
         System.out.println(mensaje);
     }

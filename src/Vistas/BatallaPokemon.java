@@ -429,7 +429,6 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         this.setVisible(true);
     }
 
-    @Override
     public void actualizar(String vida) {
         if (controlador.get_turno() == 1) {
             jLabel5.setText(vida);

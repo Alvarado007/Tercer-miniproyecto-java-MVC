@@ -3,6 +3,7 @@ package Controladores;
 import Clases.Batalla;
 import Clases.Entrenador;
 import Clases.Pokemon;
+import Interfaces.BatallaInterface;
 import Interfaces.SeleccionPokemonInterface;
 import Vistas.BatallaPokemon;
 import Vistas.SeleccionPokemon;
@@ -10,12 +11,12 @@ import Vistas.SeleccionPokemon;
 public class ControladorBatalla {
     private Pokemon pokemon1;
     private Pokemon pokemon2;
-    private BatallaPokemon vista;
+    private BatallaInterface vista;
     private Batalla batalla;
     private boolean ESGUI;
     //Recibe el modelo batalla no esta todavia
     public ControladorBatalla(Pokemon pokemon1, Pokemon pokemon2, BatallaPokemon vista, Batalla batalla, boolean ESGUI) {
-        this.ESGUI = ESGUI;
+        this.ESGUI = !ESGUI;
         this.pokemon1 = pokemon1;
         this.pokemon2 = pokemon2;
         this.vista = vista;
@@ -39,37 +40,50 @@ public class ControladorBatalla {
         String imagen1 = Entrenador.getimagenes_Back().get(pokemon1.getNombre());
         String imagen2 = Entrenador.getimagenes_front().get(pokemon2.getNombre());
         vista.Iniciar(nombre1, nombre2, Vida1, Vida2, AtatquePrimerEntrenador1, AtatquePrimerEntrenador2, AtatquePrimerEntrenador3, AtatquePrimerEntrenador4, AtatqueSegundoEntrenador1, AtatqueSegundoEntrenador2, AtatqueSegundoEntrenador3, AtatqueSegundoEntrenador4, imagen1, imagen2);
-        vista.Ocultarbotones();
-        if (batalla.getTurno() == 1) {
-            vista.Mensaje("Es el turno de " + pokemon1.getNombre());
-        } else {
-            vista.Mensaje("Es el turno de " + pokemon2.getNombre());
+        if (ESGUI){
+            BatallaPokemon vista2 = CastingVista();
+            vista2.Ocultarbotones();
+            MensajeTurno();
         }
-        
+        else{
+            MensajeTurno();
+        }
     }
     public void atacar(int ataque) {
         if (get_turno() == 1) {
             batalla.atacar(ataque);
-            vista.actualizar(Short.toString(pokemon2.getVida()));
+            if (ESGUI) {
+                BatallaPokemon vista2 = CastingVista();
+                vista2.actualizar(Short.toString(pokemon2.getVida()));
+            }
             if (batalla.getPokemonderrotado() == true) {
                 vista.Mensaje("El pokemon " + pokemon2.getNombre() + " ha sido derrotado");
                 Regreso();
                 
             }
             else{
-                vista.Ocultarbotones();
+                if (ESGUI) {
+                    BatallaPokemon vista2 = CastingVista();
+                    vista2.Ocultarbotones();
+                }
                 vista.Mensaje("Es el turno de " + pokemon2.getNombre());
             }
             
         } else {
             batalla.atacar(ataque);
-            vista.actualizar(Short.toString(pokemon1.getVida()));
+            if (ESGUI) {
+                BatallaPokemon vista2 = CastingVista();
+                vista2.actualizar(Short.toString(pokemon1.getVida()));
+            }
             if (batalla.getPokemonderrotado() == true) {
                 vista.Mensaje("El pokemon " + pokemon1.getNombre() + " ha sido derrotado");
                 Regreso();
             }
             else{
-                vista.Ocultarbotones();
+                if (ESGUI) {
+                    BatallaPokemon vista2 = CastingVista();
+                    vista2.Ocultarbotones();
+                }
                 vista.Mensaje("Es el turno de " + pokemon1.getNombre());
             }
         }
@@ -104,6 +118,17 @@ public class ControladorBatalla {
 
     public void setESGUI(boolean ESGUI) {
         this.ESGUI = ESGUI;
+    }
+
+    public BatallaPokemon CastingVista() {
+        return (BatallaPokemon) vista;
+    }
+    public void MensajeTurno() {
+        if (batalla.getTurno() == 1) {
+            vista.Mensaje("Es el turno de " + pokemon1.getNombre());
+        } else {
+            vista.Mensaje("Es el turno de " + pokemon2.getNombre());
+        }
     }
 
 
