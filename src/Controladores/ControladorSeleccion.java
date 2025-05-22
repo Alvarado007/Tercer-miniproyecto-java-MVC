@@ -31,23 +31,20 @@ public class ControladorSeleccion {
         String nombreEntrenador2 = entrenador2.getNombre_entrenador();
         Pokemon[] pokemonesEntrenador1 = entrenador1.getEquipo_entrenador().toArray( new Pokemon[0]);
         Pokemon[] pokemonesEntrenador2 = entrenador2.getEquipo_entrenador().toArray( new Pokemon[0]);
+        if (ESGUI) {
+            Desicion();
+        }
         vista.Iniciar(nombreEntrenador1, nombreEntrenador2, pokemonesEntrenador1, pokemonesEntrenador2);
-        if(entrenador1.getEquipo_entrenador().size() == 0 ) {
-            vista.Mensaje("No hay pokemones disponibles para la batalla, el entrenador " + entrenador2.getNombre_entrenador() + " ha ganado");
-            System.exit(0);
+        if (!ESGUI) {
+            Desicion();
         }
-        else if(entrenador2.getEquipo_entrenador().size() == 0) {
-            vista.Mensaje("No hay pokemones disponibles para la batalla, el entrenador " + entrenador1.getNombre_entrenador() + " ha ganado");
-            System.exit(0);
-        }
-        
     }
 
     public void InicioBatalla(Pokemon pokemon1, Pokemon pokemon2) {
         this.batalla = new Batalla(entrenador1, entrenador2, pokemon1, pokemon2);
         BatallaPokemon vistaBatalla = new BatallaPokemon();
         ControladorBatalla controlador = new ControladorBatalla(pokemon1, pokemon2, vistaBatalla, batalla, ESGUI);
-        controlador.iniciar();
+        controlador.cambiarVista();
     }
 
     public void setBatalla(Batalla batalla) {
@@ -67,6 +64,17 @@ public class ControladorSeleccion {
 
     public void setESGUI(boolean ESGUI) {
         this.ESGUI = ESGUI;
+    }
+
+    public void Desicion() {
+        if(entrenador1.getEquipo_entrenador().size() == 0 ) {
+            vista.Mensaje("No hay pokemones disponibles para la batalla, el entrenador " + entrenador2.getNombre_entrenador() + " ha ganado");
+            System.exit(0);
+        }
+        else if(entrenador2.getEquipo_entrenador().size() == 0) {
+            vista.Mensaje("No hay pokemones disponibles para la batalla, el entrenador " + entrenador1.getNombre_entrenador() + " ha ganado");
+            System.exit(0);
+        }
     }
 
 }

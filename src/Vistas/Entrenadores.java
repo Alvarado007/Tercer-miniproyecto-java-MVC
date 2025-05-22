@@ -155,6 +155,7 @@ public class Entrenadores extends javax.swing.JFrame implements ActionListener, 
     // End of variables declaration                   
     @Override
     public void actionPerformed(ActionEvent e) {
+        controlador.setESGUI(true);
         if (e.getSource() == BotonContinuar) {
             String Nombre1 =TextFieldEntrenador1.getText();
             String Nombre2 =TextFieldEntrenador2.getText();

@@ -297,6 +297,7 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        controlador.setESGUI(true);
         if (e.getSource() == jButton1 || e.getSource() == jButton2 || e.getSource() == jButton3 || e.getSource() == jButton4) {
             controlador.atacar( Integer.parseInt(e.getActionCommand()));
         } else if (e.getSource() == jButton5 || e.getSource() == jButton6 || e.getSource() == jButton7 || e.getSource() == jButton8) {
@@ -412,6 +413,7 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
             String AtatquePrimerEntrenador2, String AtatquePrimerEntrenador3, String AtatquePrimerEntrenador4,
             String AtatqueSegundoEntrenador1, String AtatqueSegundoEntrenador2, String AtatqueSegundoEntrenador3,
             String AtatqueSegundoEntrenador4, String imagen1, String imagen2) {
+        this.controlador.setESGUI(true);
         jLabel1.setText(nombre1);
         jLabel2.setText(nombre2);
         jLabel5.setText(Vida1);

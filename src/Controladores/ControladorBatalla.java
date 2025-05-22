@@ -16,7 +16,7 @@ public class ControladorBatalla {
     private boolean ESGUI;
     //Recibe el modelo batalla no esta todavia
     public ControladorBatalla(Pokemon pokemon1, Pokemon pokemon2, BatallaPokemon vista, Batalla batalla, boolean ESGUI) {
-        this.ESGUI = !ESGUI;
+        this.ESGUI = ESGUI;
         this.pokemon1 = pokemon1;
         this.pokemon2 = pokemon2;
         this.vista = vista;
@@ -102,7 +102,7 @@ public class ControladorBatalla {
         vista.Borrar();
         SeleccionPokemonInterface vistaSeleccion = new SeleccionPokemon();
         ControladorSeleccion controlador = new ControladorSeleccion(vistaSeleccion, batalla.getEntrenador1(), batalla.getEntrenador2(), ESGUI);
-        controlador.iniciar();
+        controlador.cambiarVista();
     }
 
     public void cambiarVista() {
@@ -129,6 +129,14 @@ public class ControladorBatalla {
         } else {
             vista.Mensaje("Es el turno de " + pokemon2.getNombre());
         }
+    }
+
+    public String vida1() {
+        return Short.toString(pokemon1.getVida());
+    }
+
+    public String vida2() {
+        return Short.toString(pokemon2.getVida());
     }
 
 
