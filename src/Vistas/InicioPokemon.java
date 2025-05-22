@@ -113,6 +113,7 @@ public class InicioPokemon extends javax.swing.JFrame implements ActionListener,
     // End of variables declaration                   
     @Override
     public void actionPerformed(ActionEvent e) {
+        controlador.setESGUI(true);
         controlador.iniciarJuego();
         this.dispose();
     }

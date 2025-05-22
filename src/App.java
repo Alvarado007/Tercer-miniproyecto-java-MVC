@@ -4,6 +4,7 @@ import java.util.ResourceBundle.Control;
 import Clases.Visualizacion;
 import Controladores.ControladorInicio;
 import Vistas.InicioPokemon;
+import Vistas.InicioPokemonTerminal;
 import Vistas.InicioPokemon;
 
 public class App {
@@ -12,8 +13,8 @@ public class App {
         // Visualizacion visualizacion = new Visualizacion();
         // visualizacion.iniciarJuego(sc);
         // sc.close();
-        InicioPokemon inicio = new InicioPokemon();
-        ControladorInicio controlador = new ControladorInicio(inicio);
-        controlador.iniciar();
+        InicioPokemonTerminal inicio = new InicioPokemonTerminal();
+        ControladorInicio controlador = new ControladorInicio(inicio, false);
+        controlador.cambiarVista();
     }
 }
