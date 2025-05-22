@@ -12,8 +12,10 @@ public class ControladorBatalla {
     private Pokemon pokemon2;
     private BatallaPokemon vista;
     private Batalla batalla;
+    private boolean ESGUI;
     //Recibe el modelo batalla no esta todavia
-    public ControladorBatalla(Pokemon pokemon1, Pokemon pokemon2, BatallaPokemon vista, Batalla batalla) {
+    public ControladorBatalla(Pokemon pokemon1, Pokemon pokemon2, BatallaPokemon vista, Batalla batalla, boolean ESGUI) {
+        this.ESGUI = ESGUI;
         this.pokemon1 = pokemon1;
         this.pokemon2 = pokemon2;
         this.vista = vista;
@@ -85,8 +87,23 @@ public class ControladorBatalla {
     public void Regreso() {
         vista.Borrar();
         SeleccionPokemonInterface vistaSeleccion = new SeleccionPokemon();
-        ControladorSeleccion controlador = new ControladorSeleccion(vistaSeleccion, batalla.getEntrenador1(), batalla.getEntrenador2());
+        ControladorSeleccion controlador = new ControladorSeleccion(vistaSeleccion, batalla.getEntrenador1(), batalla.getEntrenador2(), ESGUI);
         controlador.iniciar();
+    }
+
+    public void cambiarVista() {
+        if (ESGUI) {
+            vista = new Vistas.BatallaPokemon();
+        } else {
+            vista = new Vistas.BatallaPokemonTerminal();
+        }
+        ESGUI = !ESGUI;
+        vista.setControlador(this);
+        iniciar();
+    }
+
+    public void setESGUI(boolean ESGUI) {
+        this.ESGUI = ESGUI;
     }
 
 

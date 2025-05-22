@@ -46,7 +46,7 @@ public class ControladorSeleccion {
     public void InicioBatalla(Pokemon pokemon1, Pokemon pokemon2) {
         this.batalla = new Batalla(entrenador1, entrenador2, pokemon1, pokemon2);
         BatallaPokemon vistaBatalla = new BatallaPokemon();
-        ControladorBatalla controlador = new ControladorBatalla(pokemon1, pokemon2, vistaBatalla, batalla);
+        ControladorBatalla controlador = new ControladorBatalla(pokemon1, pokemon2, vistaBatalla, batalla, ESGUI);
         controlador.iniciar();
     }
 
