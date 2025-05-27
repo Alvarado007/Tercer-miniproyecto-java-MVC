@@ -65,6 +65,7 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        BotonTerminal = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -162,6 +163,13 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
         jButton8.setActionCommand("3");
         jButton8.setEnabled(false);
 
+        BotonTerminal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logos/Cambiar a Terminal Resized.png"))); // NOI18N
+        BotonTerminal.setBorderPainted(false);
+        BotonTerminal.setContentAreaFilled(false);
+        jPanel2.add(BotonTerminal);
+        BotonTerminal.setBounds(630, 500, 160, 90);
+        BotonTerminal.addActionListener(this);
+
         // jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource(imagenes2.get(pokemon1.getNombre())))); // NOI18N
         jLabel4.setHorizontalAlignment(SwingConstants.CENTER);
         jLabel4.setVerticalAlignment(SwingConstants.CENTER);
@@ -249,6 +257,7 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton BotonTerminal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -297,11 +306,14 @@ public class BatallaPokemon extends javax.swing.JFrame implements ActionListener
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        controlador.setESGUI(true);
         if (e.getSource() == jButton1 || e.getSource() == jButton2 || e.getSource() == jButton3 || e.getSource() == jButton4) {
             controlador.atacar( Integer.parseInt(e.getActionCommand()));
         } else if (e.getSource() == jButton5 || e.getSource() == jButton6 || e.getSource() == jButton7 || e.getSource() == jButton8) {
             controlador.atacar( Integer.parseInt(e.getActionCommand()));
+        } else if (e.getSource() == BotonTerminal) {
+            controlador.setESGUI(false);
+            this.dispose();
+            controlador.cambiarVista();
         }
         // int daño = 0;
         //     if (e.getSource()==jButton1  || e.getSource()==jButton2 || e.getSource()==jButton3 || e.getSource()==jButton4){

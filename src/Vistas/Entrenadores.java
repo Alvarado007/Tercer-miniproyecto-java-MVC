@@ -45,6 +45,7 @@ public class Entrenadores extends javax.swing.JFrame implements ActionListener, 
         TextFieldEntrenador1 = new javax.swing.JTextField();
         BotonContinuar = new javax.swing.JButton();
         LabelFondoEntrenadores = new javax.swing.JLabel();
+        BotonTerminal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(12, 28, 108));
@@ -92,6 +93,13 @@ public class Entrenadores extends javax.swing.JFrame implements ActionListener, 
         BotonContinuar.setContentAreaFilled(false);
         BotonContinuar.setPreferredSize(new java.awt.Dimension(123, 57));
         BotonContinuar.addActionListener(this);
+
+        BotonTerminal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logos/Cambiar a Terminal Resized.png"))); // NOI18N
+        BotonTerminal.setBorderPainted(false);
+        BotonTerminal.setContentAreaFilled(false);
+        PanelDeEntrenadores.add(BotonTerminal);
+        BotonTerminal.setBounds(630, 500, 160, 90);
+        BotonTerminal.addActionListener(this);
 
         PanelDeEntrenadores.add(BotonContinuar);
         BotonContinuar.setBounds(160, 480, 480, 100);
@@ -152,6 +160,7 @@ public class Entrenadores extends javax.swing.JFrame implements ActionListener, 
     private javax.swing.JPanel PanelDeEntrenadores;
     private javax.swing.JTextField TextFieldEntrenador1;
     private javax.swing.JTextField TextFieldEntrenador2;
+    private javax.swing.JButton BotonTerminal;
     // End of variables declaration                   
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -161,6 +170,11 @@ public class Entrenadores extends javax.swing.JFrame implements ActionListener, 
             String Nombre2 =TextFieldEntrenador2.getText();
             controlador.crearEntrenadores(Nombre1, Nombre2);
             this.dispose();
+        }
+        else if (e.getSource() == BotonTerminal) {
+            controlador.setESGUI(false);
+            this.dispose();
+            controlador.cambiarVista();
         }
     }
 
@@ -172,6 +186,7 @@ public class Entrenadores extends javax.swing.JFrame implements ActionListener, 
     @Override
     public void Iniciar() {
         this.setVisible(true);
+        controlador.setESGUI(true);
     }
 
     @Override

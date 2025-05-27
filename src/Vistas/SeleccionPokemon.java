@@ -55,6 +55,7 @@ public class SeleccionPokemon extends javax.swing.JFrame implements ActionListen
         LabelNombreEntrenador2 = new javax.swing.JLabel();
         BotonContinuarSeleccionPokemon = new javax.swing.JButton();
         LabelFondoSeleccionPokemon = new javax.swing.JLabel();
+        BotonTerminal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(12, 28, 108));
@@ -111,6 +112,13 @@ public class SeleccionPokemon extends javax.swing.JFrame implements ActionListen
         BotonContinuarSeleccionPokemon.addActionListener(this);
         jPanel1.add(BotonContinuarSeleccionPokemon);
         BotonContinuarSeleccionPokemon.setBounds(160, 480, 480, 100);
+
+        BotonTerminal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logos/Cambiar a Terminal Resized.png"))); // NOI18N
+        BotonTerminal.setBorderPainted(false);
+        BotonTerminal.setContentAreaFilled(false);
+        jPanel1.add(BotonTerminal);
+        BotonTerminal.setBounds(630, 500, 160, 90);
+        BotonTerminal.addActionListener(this);
 
         LabelFondoSeleccionPokemon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logos/Pikachu Fondo Resized.jpeg"))); // NOI18N
         jPanel1.add(LabelFondoSeleccionPokemon);
@@ -172,13 +180,20 @@ public class SeleccionPokemon extends javax.swing.JFrame implements ActionListen
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton BotonTerminal;
     // End of variables declaration
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == BotonTerminal) {
+            controlador.setESGUI(false);
+            this.dispose();
+            controlador.cambiarVista();
+        } else if (e.getSource() == BotonContinuarSeleccionPokemon) {
             controlador.setESGUI(true);
             controlador.InicioBatalla(ListEntrenador1.getSelectedValue(), ListEntrenador2.getSelectedValue());
             System.out.println("Inicia la batalla");
             this.dispose();
+        }
         // if (PokemonGuardado == null) {
         //     Pokemon pokemon1 = ListEntrenador1.getSelectedValue();
         //     Pokemon pokemon2 = ListEntrenador2.getSelectedValue();
@@ -267,7 +282,7 @@ public class SeleccionPokemon extends javax.swing.JFrame implements ActionListen
         ListEntrenador1.setListData(pokemonesEntrenador1);
         ListEntrenador2.setListData(pokemonesEntrenador2);
         this.setVisible(true);
-        
+        controlador.setESGUI(true);
     }
     public void ocultarbotones() {
         
