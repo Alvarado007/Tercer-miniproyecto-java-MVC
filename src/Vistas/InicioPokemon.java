@@ -37,6 +37,7 @@ public class InicioPokemon extends javax.swing.JFrame implements ActionListener,
         LabelLogo = new javax.swing.JLabel();
         BotonJugar = new javax.swing.JButton();
         LabelFondoInicio = new javax.swing.JLabel();
+        BotonTerminal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(12, 28, 108));
@@ -59,6 +60,13 @@ public class InicioPokemon extends javax.swing.JFrame implements ActionListener,
         PanelDeInicio.add(BotonJugar);
         BotonJugar.setBounds(180, 380, 420, 120);
         BotonJugar.addActionListener(this);
+
+        BotonTerminal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logos/Cambiar a Terminal Resized.png"))); // NOI18N
+        BotonTerminal.setBorderPainted(false);
+        BotonTerminal.setContentAreaFilled(false);
+        PanelDeInicio.add(BotonTerminal);
+        BotonTerminal.setBounds(630, 500, 160, 90);
+        BotonTerminal.addActionListener(this);
 
         LabelFondoInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Logos/Pikachu Fondo Resized.jpeg"))); // NOI18N
         PanelDeInicio.add(LabelFondoInicio);
@@ -110,12 +118,18 @@ public class InicioPokemon extends javax.swing.JFrame implements ActionListener,
     private javax.swing.JLabel LabelFondoInicio;
     private javax.swing.JLabel LabelLogo;
     private javax.swing.JPanel PanelDeInicio;
+    private javax.swing.JButton BotonTerminal;
     // End of variables declaration                   
     @Override
     public void actionPerformed(ActionEvent e) {
-        controlador.setESGUI(true);
-        controlador.iniciarJuego();
-        this.dispose();
+        if (e.getSource() == BotonTerminal) {
+            this.controlador.setESGUI(false);
+            this.dispose();
+            controlador.cambiarVista();
+        } else {
+            controlador.iniciarJuego();
+            this.dispose();
+        }
     }
 
     @Override
@@ -125,6 +139,7 @@ public class InicioPokemon extends javax.swing.JFrame implements ActionListener,
 
     @Override
     public void Iniciar() {
+        controlador.setESGUI(true);
         this.setVisible(true);
     }
 }
