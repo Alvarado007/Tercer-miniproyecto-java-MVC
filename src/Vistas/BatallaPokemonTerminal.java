@@ -75,6 +75,7 @@ public class BatallaPokemonTerminal implements BatallaInterface {
             }
             case 2:
                 controlador.setESGUI(true);
+                controlador.cambiarVista();
                 break;
         }
     }
