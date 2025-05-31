@@ -32,7 +32,7 @@ Este proyecto es una simulación de combates entre Pokémon utilizando Java. El 
 ### 📊 Diagrama de Flujo del Sistema MVC
 ```mermaid
 graph TD
-    ControladorInicio[**ControladorInicio**<br>────────────<br>Este es el punto de partida] --> VistaTerminalInicio
+    ControladorInicio[**ControladorInicio**<br>────────────<br>- Inicio Vista<br>- boolean ESGUI<br>────────────<br>+ public ControladorInicio<br>+ public void IniciarJuego<br>+ public void INICIAR<br>+ public void CambiarVista<br>+ public void setESGUS ] --> VistaTerminalInicio[**inicioPokemonTerminal**<br>────────────<br>- Scanner scanner<br> - ControladorInicio Controlador<br>────────────<br>+ public InicioPokemonTerminal<br>+ public void setControlador<br>+ pulic void Iniciar]
     ControladorInicio --> ControladorEntrenador
     ControladorInicio --> VistaGUIInicio
 
