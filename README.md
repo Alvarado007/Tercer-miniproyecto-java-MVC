@@ -29,68 +29,29 @@ Este proyecto es una simulación de combates entre Pokémon utilizando Java. El 
 - Sistema de ataques con nombre, poder y tipo.
 - Todo esta completamente dividido en carpetas siguiendo con la estructura del MVC y algunas externas para mayor orden y entendimiento del codigo.
 
-### 📊 Relación entre Clases
+### 📊 Diagrama de Flujo del Sistema MVC
 ```mermaid
-classDiagram
-    class Entrenador {
-        - nombre : String
-        - equipo_pokemon : ArrayList<Pokemon>
-        - contador_pokemones : int
-        + getNombre_entrenador()
-        + getEquipo_entrenador()
-        + Entrenador()  // Constructor
-        + agregarPokemonEquipo(Scanner sc)
-        + elegirPokemonBatallaManual(Scanner sc)
-        + elegirPokemonBatallaAutomatico(Scanner sc)
-        + agregraAtaquesPokemonesAutomatico(Scanner sc)
-        + agregarAtaquePokemonManual(Scanner sc)
-        + mostrarEquipo(Scanner sc)
-    }
-    class Pokemon {
-        - nombre : String
-        - tipo : TiposPokemon
-        - ataques : ArrayList<Ataque>
-        - vida : short
-        - contadorataques : int
-        - counter : TiposPokemon
-        + Pokemon(String nombre, TiposPokemon tipo, short vida, TiposPokemon counter)
-        + getNombre()
-        + setNombre(String nombre)
-        + getTipo()
-        + setTipo(TiposPokemon tipo)
-        + getVida()
-        + setVida(short vida)
-        + getCounter()
-        + setCounter(TiposPokemon counter)
-        + addAtaque(Ataque ataque)
-        + getAtaques()
-        + mostrarAtaques()
-    }
-    class Ataque {
-        - nombreAtaque : String
-        - tipodano : TipoDano
-        - potencia : short
-        - tipoAtaque : TiposPokemon
-        + Ataque(String nombreAtaque, TipoDano tipoDano, short potencia, TiposPokemon tipoAtaque)
-        + getNombreAtaque()
-        + setNombreAtaque(String nombreAtaque)
-        + getTipoDano()
-        + setTipoDano(TipoDano tipoDano)
-        + getPotencia()
-        + setPotencia(byte potencia)
-        + getTipoAtaque()
-        + setTipoAtaque(TiposPokemon tipoAtaque)
-        + getAtaques() : static
+graph TD
+    ControladorInicio[**ControladorInicio**<br>────────────<br>Este es el punto de partida] --> VistaTerminalInicio
+    ControladorInicio --> ControladorEntrenador
+    ControladorInicio --> VistaGUIInicio
 
-    }
-    class Visualizacion {
-        + iniciarJuego(Scanner sc)
-        + agregar_pokemon(Scanner sc)
-        + batalla(Scanner sc)
-    }
-    Entrenador "1" --> "*" Pokemon
-    Pokemon "1" --> "*" Ataque
-    Visualizacion --> Entrenador
+    ControladorEntrenador[**ControladorInicio**<br>────────────<br>Este es el punto de partida] --> VistaTerminalEntrenador
+    ControladorEntrenador --> ControladorSeleccionPokemon
+    ControladorEntrenador --> ModeloEntrenador
+    ControladorEntrenador --> VistaGUIEntrenador
+    ModeloEntrenador[**ControladorInicio**<br>────────────<br>Este es el punto de partida] --> ModeloPokemon
+
+    ControladorSeleccionPokemon[**ControladorSeleccionPokemon**<br>────────────<br>- ModeloEntrenador<br>- ModeloPokemon] --> VistaTerminalSeleccionPokemon
+    ControladorSeleccionPokemon --> ControladorBatalla
+    ControladorSeleccionPokemon --> VistaGUISeleccionPokemon
+
+    ControladorBatalla[**ControladorInicio**<br>────────────<br>Este es el punto de partida] --> VistaTerminalBatalla
+    ControladorBatalla --> ControladorSeleccionPokemon
+    ControladorBatalla --> VistaGUIBatalla
+    
+
+    
 ```
 ###
 <img align="right" height="150" src="https://i.pinimg.com/originals/4e/fe/e1/4efee18cb06f3d2f8456a40d1e0460e7.gif?cid=6c09b952llhupk66joic0ml8gbch148n2dfdqsvzj7z7f0em&ep=v1_gifs_search&rid=200w.gif&ct=g"  />
@@ -104,7 +65,7 @@ classDiagram
 ### 🚀 Cómo Ejecutar
 1. Clona el repositorio:
 ```bash
-git git clone https://github.com/Alvarado007/Tercer-miniproyecto-java-MVC.git
+git clone https://github.com/Alvarado007/Tercer-miniproyecto-java-MVC.git
 ```
 2. Abre el proyecto en tu IDE favorito.
 3. Asegúrate de tener Java instalado (Java 8+).
