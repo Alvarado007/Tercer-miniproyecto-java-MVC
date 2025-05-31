@@ -20,13 +20,14 @@
 </div>
 
 ###
-## 📦 Proyecto: Simulador de Batallas Pokémon
+## 📦 Proyecto: Simulador de Batallas Pokémon (MVC)
+
 Este proyecto es una simulación de combates entre Pokémon utilizando Java. El sistema permite que entrenadores elijan y enfrenten Pokémon con distintos ataques y tipos (agua, fuego, psíquico y eléctrico).
 
 ### ✨ Características:
-- Simulación por consola de batallas entre Pokémon.
+- Simulación por consola y GUI de batallas entre Pokémon.
 - Sistema de ataques con nombre, poder y tipo.
-- Clases bien estructuradas: `Entrenador`, `Pokemon`, `Ataque`, `Visualizacion`.
+- Todo esta completamente dividido en carpetas siguiendo con la estructura del MVC y algunas externas para mayor orden y entendimiento del codigo.
 
 ### 📊 Relación entre Clases
 ```mermaid
@@ -103,7 +104,7 @@ classDiagram
 ### 🚀 Cómo Ejecutar
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/Alvarado007/Primer-miniproyecto-java.git
+git git clone https://github.com/Alvarado007/Tercer-miniproyecto-java-MVC.git
 ```
 2. Abre el proyecto en tu IDE favorito.
 3. Asegúrate de tener Java instalado (Java 8+).
