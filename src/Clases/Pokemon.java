@@ -16,6 +16,10 @@ public class Pokemon {
     short velocidad;
     short defensaEspecial;
     short ataque;
+    private String Ataque_actual;
+    public String getAtaque_actual() {
+        return Ataque_actual;
+    }
 
     
     public Pokemon(String nombre, TiposPokemon tipo, short vida, TiposPokemon counter, short defensa, short velocidad, short defensaEspecial, short ataque) {
@@ -127,11 +131,16 @@ public class Pokemon {
         } else if (ataquePokemon1.getTipoAtaque() == pokemon2.getTipo()) {
             daño = (int) (daño * 0.5);
         }
+        Ataque_actual = String.valueOf(daño);
         pokemon2.recibirDaño(daño);
     }
     
     public void recibirDaño(int daño) {
         short vidaRestante = (short) (vida - daño);
         this.vida = vidaRestante;
+    }
+
+    public String getAtaqueactual() {
+        return Ataque_actual;
     }
 }

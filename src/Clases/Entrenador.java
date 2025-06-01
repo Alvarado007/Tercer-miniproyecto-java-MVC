@@ -112,8 +112,8 @@ public class Entrenador extends SerVivo {
         HashMap<String, TiposPokemon> tipoPokemon = getTipoPokemon();
         HashMap<String, TiposPokemon> counters = getCounters();
         ArrayList<String> nombresPokemones = getPokemones();
-        for (int i = 0; i < 50; i++) {
-            String nombre = nombresPokemones.get((int) (Math.random() * nombresPokemones.size() - 1));
+        for (int i = 0; i < 70; i++) {
+            String nombre = nombresPokemones.get((int) (Math.random() * nombresPokemones.size() ));
             TiposPokemon tipo = tipoPokemon.get(nombre);
             TiposPokemon counter = counters.get(nombre);
             short vida = randomVida();
@@ -127,7 +127,7 @@ public class Entrenador extends SerVivo {
         
             
         for (byte i=0; i<3; i++){
-            int randomIndex = (int) (Math.random() * pokemones.size()-1);
+            int randomIndex = (int) (Math.random() * pokemones.size());
             Pokemon pokemon = pokemones.get(randomIndex);
             agregarPokemonEquipo(pokemon);
             pokemones.remove(randomIndex);
@@ -138,7 +138,7 @@ public class Entrenador extends SerVivo {
         for (Pokemon pokemon : equipo_entrenador) {
             for (byte i=0; i<3; i++){
                 while (true){
-                    int randomIndex = (int) (Math.random() * ataques.size()-1);
+                    int randomIndex = (int) (Math.random() * ataques.size());
                     Ataque ataque = ataques.get(randomIndex);
                     if (ataque.getTipoAtaque().equals(pokemon.getTipo())){
                         pokemon.addAtaque(ataque);

@@ -56,24 +56,24 @@ public class ControladorBatalla {
         if (ESGUI){
             BatallaPokemon vista2 = CastingVista();
             vista2.Ocultarbotones();
-            System.out.println("s");
             MensajeTurno();
         }
         else if (!ESGUI){
-            System.out.println("a");
             MensajeTurno();
         }
     }
-    public void atacar(int ataque) {
+    public Boolean atacar(int ataque) {
         if (get_turno() == 1) {
             batalla.atacar(ataque);
             if (ESGUI) {
                 BatallaPokemon vista2 = CastingVista();
                 vista2.actualizar(Short.toString(pokemon2.getVida()));
             }
+            vista.Mensaje("Has atacado con " + pokemon1.getNombre() + " con un daño de " + pokemon1.getAtaque_actual());
             if (batalla.getPokemonderrotado() == true) {
                 vista.Mensaje("El pokemon " + pokemon2.getNombre() + " ha sido derrotado");
                 Regreso();
+                return true;
                 
             }
             else{
@@ -82,6 +82,7 @@ public class ControladorBatalla {
                     vista2.Ocultarbotones();
                 }
                 vista.Mensaje("Es el turno de " + pokemon2.getNombre());
+                return false;
             }
             
         } else {
@@ -90,9 +91,11 @@ public class ControladorBatalla {
                 BatallaPokemon vista2 = CastingVista();
                 vista2.actualizar(Short.toString(pokemon1.getVida()));
             }
+            vista.Mensaje("Has atacado con " + pokemon2.getNombre() + " con un daño de " + pokemon2.getAtaque_actual());
             if (batalla.getPokemonderrotado() == true) {
                 vista.Mensaje("El pokemon " + pokemon1.getNombre() + " ha sido derrotado");
                 Regreso();
+                return true;
             }
             else{
                 if (ESGUI) {
@@ -100,6 +103,7 @@ public class ControladorBatalla {
                     vista2.Ocultarbotones();
                 }
                 vista.Mensaje("Es el turno de " + pokemon1.getNombre());
+                return false;
             }
         }
     }
