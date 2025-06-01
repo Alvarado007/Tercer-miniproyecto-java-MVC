@@ -155,7 +155,7 @@ public class Entrenador extends SerVivo {
         for (Pokemon pokemon : equipo_entrenador) {
             for (byte i=0; i<1; i++){
                 while (true){
-                    int randomIndex = (int) (Math.random() * ataques.size()-1);
+                    int randomIndex = (int) (Math.random() * ataques.size());
                     Ataque ataque = ataques.get(randomIndex);
                     if (ataque.getTipoAtaque().equals(pokemon.getTipo())){
                         pokemon.addAtaque(ataque);

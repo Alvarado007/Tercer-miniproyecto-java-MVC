@@ -184,6 +184,7 @@ public class SeleccionPokemon extends javax.swing.JFrame implements ActionListen
     // End of variables declaration
     @Override
     public void actionPerformed(ActionEvent e) {
+        controlador.setESGUI(true);
         if (e.getSource() == BotonTerminal) {
             controlador.setESGUI(false);
             this.dispose();
@@ -191,7 +192,6 @@ public class SeleccionPokemon extends javax.swing.JFrame implements ActionListen
         } else if (e.getSource() == BotonContinuarSeleccionPokemon) {
             controlador.setESGUI(true);
             controlador.InicioBatalla(ListEntrenador1.getSelectedValue(), ListEntrenador2.getSelectedValue());
-            System.out.println("Inicia la batalla");
             this.dispose();
         }
         // if (PokemonGuardado == null) {
@@ -282,7 +282,6 @@ public class SeleccionPokemon extends javax.swing.JFrame implements ActionListen
         ListEntrenador1.setListData(pokemonesEntrenador1);
         ListEntrenador2.setListData(pokemonesEntrenador2);
         this.setVisible(true);
-        controlador.setESGUI(true);
     }
     public void ocultarbotones() {
         
