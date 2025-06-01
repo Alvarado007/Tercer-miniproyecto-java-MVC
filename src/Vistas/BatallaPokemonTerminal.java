@@ -36,7 +36,6 @@ public class BatallaPokemonTerminal implements BatallaInterface {
                 int turno2 = 0;
                 while (true){
                     if (controlador.get_turno() == 1){
-                        System.out.println("Turno de " + nombre1);
                         if (turno1 == 0) {
                             System.out.println("Vida: " + Vida1);
                         } else {
@@ -50,11 +49,13 @@ public class BatallaPokemonTerminal implements BatallaInterface {
                         System.out.println("4. " + AtatquePrimerEntrenador4);
                         int ataque = scanner.nextInt();
                         turno1++;
-                        controlador.atacar(ataque - 1);
+                        if(controlador.atacar(ataque - 1)){
+                            System.out.println("Batalla terminada. ");
+                            return;
+                        }
                         
                     }
                     else{
-                        System.out.println("Turno de " + nombre2);
                         if (turno2 == 0) {
                             System.out.println("Vida: " + Vida2);
                         } else {
@@ -68,7 +69,10 @@ public class BatallaPokemonTerminal implements BatallaInterface {
                         System.out.println("4. " + AtatqueSegundoEntrenador4);
                         int ataque = scanner.nextInt();
                         turno2++;
-                        controlador.atacar(ataque - 1);
+                        if(controlador.atacar(ataque - 1)) {
+                            System.out.println("Batalla terminada. ");
+                            return;
+                        }
                     }
                 }
                 
